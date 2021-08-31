@@ -1,0 +1,20 @@
+{
+  "name": "image-resize",
+  "version": "1.0",
+  "main": "index.js",
+  "author": "Tenderfeel <tenderfeel@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "gulp"
+  },
+  "devDependencies": {
+    "del": "^6.0.0",
+    "esm": "^3.2.25",
+    "fs": "^0.0.1-security",
+    "gulp": "^4.0.2",
+    "ora": "^5.4.1",
+    "sharp": "^0.29.0"
+  },
+  "dependencies": {}
+}
