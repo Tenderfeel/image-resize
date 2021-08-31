@@ -1,5 +1,6 @@
 import sharp from 'sharp';
-import { readdir, readFile, writeFile } from 'fs/promises'
+import { readdir, readFile, writeFile, mkdir } from 'fs/promises'
+import { existsSync } from 'fs';
 import del from 'del';
 import chalk from 'chalk'
 import ora from 'ora'
@@ -32,6 +33,10 @@ const spinner = ora(`Start resize images`).start(
 async function defaultTask(cb) {
   const files = await readdir(IMAGE_DIRECTORY_PATH, { withFileTypes: true })
   const filterFiles = files.filter((file) => file.isFile() && !file.name.includes('.DS_Store'))
+
+  if (!existsSync(DIST_DIRECTORY_PATH)) {
+    await mkdir(DIST_DIRECTORY_PATH)
+  }
 
   spinner
     .succeed(`Read ${chalk.bold(files.length)} image files.`)
